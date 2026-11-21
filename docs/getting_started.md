@@ -1,5 +1,15 @@
 # Getting Started
 
+## How Argo CD works
+
+Argo CD follows a GitOps workflow: it reads the desired application configuration from a source (such as a Git repository or Helm chart), compares it with the live resources in a destination cluster, and reports any difference. A **sync** applies the desired configuration to the cluster. With a manual sync policy, you decide when those changes are applied.
+
+Keep these ideas in mind as you create your first application:
+
+* **Source**: the repository, revision, and path (or chart) that define the desired state.
+* **Destination**: the Kubernetes cluster and namespace where the application runs.
+* **Status**: **Synced** means live resources match the source; **Healthy** describes the health of those resources. An application can be synced but not healthy, or healthy but out of sync.
+
 !!! tip
     This guide assumes you have a grounding in the tools that Argo CD is based on. Please read [understanding the basics](understand_the_basics.md) to learn about these tools.
 
