@@ -293,6 +293,9 @@ export const ApplicationCreatePanel = (props: {
                                         const sourcePanel = () => (
                                             <div className='white-box'>
                                                 <p>SOURCE</p>
+                                                <p className='application-create-panel__help'>
+                                                    Choose a Git repository and path, or a Helm chart. Argo CD uses this source as the desired state for your application.
+                                                </p>
                                                 <div className='row argo-form-row'>
                                                     <div className='columns small-10'>
                                                         <FormField
@@ -408,6 +411,9 @@ export const ApplicationCreatePanel = (props: {
                                         const destinationPanel = () => (
                                             <div className='white-box'>
                                                 <p>DESTINATION</p>
+                                                <p className='application-create-panel__help'>
+                                                    Choose the registered cluster and namespace where Argo CD will compare and manage the application resources.
+                                                </p>
                                                 <div className='row argo-form-row'>
                                                     {(destinationComboValue.toUpperCase() === 'URL' && (
                                                         <div className='columns small-10'>

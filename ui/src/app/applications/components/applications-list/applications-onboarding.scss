@@ -1,0 +1,74 @@
+@import 'node_modules/argo-ui/src/styles/config';
+@import 'node_modules/argo-ui/src/styles/theme';
+
+.applications-onboarding {
+    max-width: 46em;
+    margin: 0 auto;
+    text-align: left;
+
+    &__intro {
+        margin-bottom: 1.5em;
+    }
+
+    &__steps {
+        display: flex;
+        list-style: none;
+        gap: 0.5em;
+        margin: 0 0 1em;
+        padding: 0;
+    }
+
+    &__step {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        padding: 0.75em;
+        border: 1px solid $argo-color-gray-4;
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+
+        &--active {
+            border-color: $argo-color-teal-5;
+            font-weight: 600;
+        }
+    }
+
+    &__step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        background: $argo-color-gray-4;
+    }
+
+    &__detail {
+        padding: 1em;
+        border-radius: 4px;
+        @include themify($themes) {
+            background: themed('light-argo-gray-2');
+        }
+
+        h5,
+        p {
+            margin-top: 0;
+        }
+    }
+
+    &__guide {
+        display: inline-block;
+        margin-top: 1em;
+    }
+
+    @media screen and (max-width: 600px) {
+        &__steps {
+            flex-direction: column;
+        }
+
+        &__step {
+            width: 100%;
+        }
+    }
+}

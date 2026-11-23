@@ -21,6 +21,7 @@ import {ApplicationsTable} from './applications-table';
 import {ApplicationTiles} from './applications-tiles';
 import {ApplicationsRefreshPanel} from '../applications-refresh-panel/applications-refresh-panel';
 import {useSidebarTarget} from '../../../sidebar/sidebar';
+import {ApplicationsOnboarding} from './applications-onboarding';
 
 import './applications-list.scss';
 import './flex-top-bar.scss';
@@ -485,14 +486,9 @@ export const ApplicationsList = (props: RouteComponentProps<{}>) => {
                                                     <div className='applications-list'>
                                                         {applications.length === 0 && pref.projectsFilter?.length === 0 && (pref.labelsFilter || []).length === 0 ? (
                                                             <EmptyState icon='argo-icon-application'>
-                                                                <h4>No applications available to you just yet</h4>
-                                                                <h5>Create new application to start managing resources in your cluster</h5>
-                                                                <button
-                                                                    qe-id='applications-list-button-create-application'
-                                                                    className='argo-button argo-button--base'
-                                                                    onClick={() => ctx.navigation.goto('.', {new: JSON.stringify({})}, {replace: true})}>
-                                                                    Create application
-                                                                </button>
+                                                                <ApplicationsOnboarding
+                                                                    onCreateApplication={() => ctx.navigation.goto('.', {new: JSON.stringify({})}, {replace: true})}
+                                                                />
                                                             </EmptyState>
                                                         ) : (
                                                             <>
